@@ -7,6 +7,9 @@ import (
 	"time"
 )
 
+// TITLE is replay ack title.
+const TITLE = "server-ack: "
+
 func main() {
 	service := ":6666"
 	tcpAddr, err := net.ResolveTCPAddr("tcp4", service)
@@ -25,7 +28,7 @@ func main() {
 func handleClient(conn net.Conn) {
 	defer conn.Close()
 	daytime := time.Now().String()
-	conn.Write([]byte(daytime))
+	conn.Write([]byte(TITLE + daytime))
 }
 
 func checkError(err error) {
