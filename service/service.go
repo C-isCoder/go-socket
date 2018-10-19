@@ -27,6 +27,20 @@ func main() {
 
 func handleClient(conn net.Conn) {
 	defer conn.Close()
+	b := make([]byte, 128)
+	for {
+		readLine, err := conn.Read(b)
+		if err != nil {
+			fmt.Println(err)
+			break
+		}
+		if readLine == 0 {
+			break
+		} else {
+			fmt.Printf("<<<------%s", b)
+			fmt.Printf("<<<------%d", b[:readLine])
+		}
+	}
 	daytime := time.Now().String()
 	conn.Write([]byte(TITLE + daytime))
 }
