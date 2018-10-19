@@ -7,8 +7,8 @@ import (
 	"time"
 )
 
-// TITLE is replay ack title.
-const TITLE = "server-ack: "
+// ACK is replay ack title.
+const ACK = "server-ack:(OK)"
 
 func main() {
 	service := ":6666"
@@ -37,12 +37,10 @@ func handleClient(conn net.Conn) {
 		if readLine == 0 {
 			break
 		} else {
-			fmt.Printf("<<<------%s", b)
-			fmt.Printf("<<<------%d", b[:readLine])
+			fmt.Printf("<<<------%s-time:%s", b, time.Now())
 		}
 	}
-	daytime := time.Now().String()
-	conn.Write([]byte(TITLE + daytime))
+	conn.Write([]byte(ACK))
 }
 
 func checkError(err error) {
