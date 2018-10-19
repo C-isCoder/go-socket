@@ -37,10 +37,10 @@ func handleClient(conn net.Conn) {
 		if readLine == 0 {
 			break
 		} else {
-			fmt.Printf("<<<------%s-time:%s", b, time.Now())
+			fmt.Printf("<<<------%s-time:%s", b, time.Now().Format("2000-01-02 12:33:22"))
+			conn.Write([]byte(ACK))
 		}
 	}
-	conn.Write([]byte(ACK))
 }
 
 func checkError(err error) {
