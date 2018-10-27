@@ -10,6 +10,9 @@ import (
 // ACK is replay ack title.
 const ACK = "server-ack:(OK)"
 
+// END  times end
+const END = "-1"
+
 func main() {
 	service := ":6666"
 	tcpAddr, err := net.ResolveTCPAddr("tcp4", service)
@@ -39,6 +42,7 @@ func handleClient(conn net.Conn) {
 		} else {
 			fmt.Printf("<<<------%stime:%s", b, time.Now().Format("2006-01-02 15:04:05"))
 			conn.Write([]byte(ACK))
+			conn.Write([]byte(END))
 		}
 	}
 }
