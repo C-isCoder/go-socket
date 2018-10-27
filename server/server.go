@@ -21,8 +21,7 @@ func main() {
 		if err != nil {
 			continue
 		}
-		// go handleClient(conn)
-		handleClient(conn)
+		go handleClient(conn)
 	}
 }
 
