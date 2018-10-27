@@ -11,7 +11,7 @@ import (
 const ACK = "server-ack:(OK)"
 
 // END  times end
-const END = "-1"
+const END = "."
 
 func main() {
 	service := ":6666"
