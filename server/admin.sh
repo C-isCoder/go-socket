@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SERVER="go-socket-server"
+SERVER="server"
 BASE_DIR=$PWD
 INTERVAL=2
 
