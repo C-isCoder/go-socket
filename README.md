@@ -1,2 +1,2 @@
 # go-socket
-㉿␥ Golang Socket demo
+㉿␥ golang socket demo.
